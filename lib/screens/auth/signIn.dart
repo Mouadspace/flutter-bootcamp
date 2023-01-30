@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class signIn extends StatelessWidget {
   const signIn({Key? key, required this.title}) : super(key: key);
@@ -167,9 +168,9 @@ class signIn extends StatelessWidget {
                         color: Color(0xfff0f0f5),
                         shape: BoxShape.circle,
                       ),
-                      child: Image.asset(
-                        "assets/icons/png/google.png",
-                        scale: 2,
+                      child: SvgPicture.asset(
+                        "assets/icons/svg/google.svg",
+                        width: 20,
                       ),
                     ),
                     const SizedBox(
@@ -181,9 +182,9 @@ class signIn extends StatelessWidget {
                         color: Color(0xfff0f0f5),
                         shape: BoxShape.circle,
                       ),
-                      child: Image.asset(
-                        "assets/icons/png/facebook.png",
-                        scale: 2,
+                      child: SvgPicture.asset(
+                        "assets/icons/svg/facebook.svg",
+                        width: 20,
                       ),
                     ),
                     const SizedBox(
@@ -195,9 +196,9 @@ class signIn extends StatelessWidget {
                         color: Color(0xfff0f0f5),
                         shape: BoxShape.circle,
                       ),
-                      child: Image.asset(
-                        "assets/icons/png/twitter.png",
-                        scale: 2,
+                      child: SvgPicture.asset(
+                        "assets/icons/svg/twitter.svg",
+                        width: 20,
                       ),
                     ),
                   ],

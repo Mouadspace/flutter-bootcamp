@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class signUp extends StatelessWidget {
   const signUp({Key? key, required this.title}) : super(key: key);
@@ -59,13 +60,6 @@ class signUp extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 45),
-                // TextField(
-                //   textAlign: TextAlign.left,
-                //   decoration: InputDecoration(
-                //     hintText: 'Enter Something',
-                //     contentPadding: EdgeInsets.only(left: 20),
-                //   ),
-                // ),
                 TextField(
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.only(
@@ -173,9 +167,9 @@ class signUp extends StatelessWidget {
                         color: Color(0xfff0f0f5),
                         shape: BoxShape.circle,
                       ),
-                      child: Image.asset(
-                        "assets/icons/png/google.png",
-                        scale: 2,
+                      child: SvgPicture.asset(
+                        "assets/icons/svg/google.svg",
+                        width: 20,
                       ),
                     ),
                     const SizedBox(
@@ -187,9 +181,9 @@ class signUp extends StatelessWidget {
                         color: Color(0xfff0f0f5),
                         shape: BoxShape.circle,
                       ),
-                      child: Image.asset(
-                        "assets/icons/png/facebook.png",
-                        scale: 2,
+                      child: SvgPicture.asset(
+                        "assets/icons/svg/facebook.svg",
+                        width: 20,
                       ),
                     ),
                     const SizedBox(
@@ -201,9 +195,9 @@ class signUp extends StatelessWidget {
                         color: Color(0xfff0f0f5),
                         shape: BoxShape.circle,
                       ),
-                      child: Image.asset(
-                        "assets/icons/png/twitter.png",
-                        scale: 2,
+                      child: SvgPicture.asset(
+                        "assets/icons/svg/twitter.svg",
+                        width: 20,
                       ),
                     ),
                   ],

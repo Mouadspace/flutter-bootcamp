@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         fontFamily: "Mulish",
       ),
-      home: const signIn(title: 'Ecomerce Application'),
+      home: const signUp(title: 'Ecomerce Application'),
     );
   }
 }

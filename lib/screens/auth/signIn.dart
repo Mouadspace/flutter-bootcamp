@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class signUp extends StatelessWidget {
-  const signUp({Key? key, required this.title}) : super(key: key);
+class signIn extends StatelessWidget {
+  const signIn({Key? key, required this.title}) : super(key: key);
   final String title;
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class signUp extends StatelessWidget {
                       size: 35,
                     ),
                     Text(
-                      'Sign Up',
+                      'Sign In',
                       style: TextStyle(
                         color: Color(0xffacadc1),
                         fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class signUp extends StatelessWidget {
                   height: 50,
                 ),
                 const Text(
-                  "Register Account",
+                  "Welcome Back",
                   style: TextStyle(
                     color: Color(0xff26273b),
                     fontWeight: FontWeight.bold,
@@ -50,7 +50,7 @@ class signUp extends StatelessWidget {
                   height: 10,
                 ),
                 const Text(
-                  "Complete your details or continue \nwith social media",
+                  "Sign in with your email and password \nor continue with social media",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Color(0xffacadc1),
@@ -58,14 +58,7 @@ class signUp extends StatelessWidget {
                     height: 1.5,
                   ),
                 ),
-                const SizedBox(height: 45),
-                // TextField(
-                //   textAlign: TextAlign.left,
-                //   decoration: InputDecoration(
-                //     hintText: 'Enter Something',
-                //     contentPadding: EdgeInsets.only(left: 20),
-                //   ),
-                // ),
+                const SizedBox(height: 79),
                 TextField(
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.only(
@@ -119,33 +112,34 @@ class signUp extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 37,
+                  height: 25,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(
-                        left: 40, top: 19, bottom: 19, right: 40),
-                    label: const Text("Confirm Password"),
-                    hintText: "Re-Enter your password",
-                    hintStyle: TextStyle(color: Color(0xffd6d6e1)),
-                    suffixIcon: const Padding(
-                        padding: EdgeInsets.only(right: 25),
-                        child: Icon(Icons.lock_open_rounded)),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
-                      borderSide: const BorderSide(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(value: true, onChanged: (bool) => {}),
+                        const Text(
+                          "Remember me",
+                          style: TextStyle(
+                            color: Color(0xffacadc1),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Text(
+                      "Forgot Password",
+                      style: TextStyle(
                         color: Color(0xffacadc1),
+                        fontWeight: FontWeight.w600,
+                        decoration: TextDecoration.underline,
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
-                      borderSide: const BorderSide(
-                        color: Color(0xffacadc1),
-                      ),
-                    ),
-                  ),
+                  ],
                 ),
-                const SizedBox(height: 45),
+                const SizedBox(height: 35),
                 ElevatedButton(
                   onPressed: () {},
                   child: const Text(
@@ -160,7 +154,7 @@ class signUp extends StatelessWidget {
                     primary: Color(0xffea7445),
                     minimumSize: const Size.fromHeight(57),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50)),
+                        borderRadius: BorderRadius.circular(20)),
                   ),
                 ),
                 const SizedBox(height: 60),
@@ -209,13 +203,24 @@ class signUp extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  "By continuing your confirm that you agree \nwith our Term and Condtion",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color(0xffacadc1),
-                    height: 1.5,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      "Don't have an acount?",
+                      style: TextStyle(
+                        color: Color(0xffacadc1),
+                        height: 1.5,
+                      ),
+                    ),
+                    Text(
+                      " Sign Up",
+                      style: TextStyle(
+                        color: Color(0xffea7445),
+                        height: 1.5,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

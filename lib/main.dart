@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'screens/auth/signIn.dart';
 import 'screens/auth/signUp.dart';
 import 'screens/onBoarding/page1.dart';
 import 'screens/onBoarding/page2.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         fontFamily: "Mulish",
       ),
-      home: const signUp(title: 'Ecomerce Application'),
+      home: const signIn(title: 'Ecomerce Application'),
     );
   }
 }

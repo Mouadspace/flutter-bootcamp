@@ -25,7 +25,11 @@ class signUp extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, "/onBording3");
+                          // this make my the app crash when clicking on continue
+                          // somehow the app dont know nextpage Controller
+                          // so i used instead pop
+                          // Navigator.pushNamed(context, "/onBording");
+                          Navigator.pop(context);
                         },
                         child: Icon(
                           Icons.chevron_left_rounded,
@@ -136,6 +140,7 @@ class signUp extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                       primary: Color(0xffea7445),
+                      onPrimary: Colors.white,
                       minimumSize: const Size.fromHeight(57),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50)),

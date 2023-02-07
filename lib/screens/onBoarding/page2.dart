@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'page0.dart';
 
 class Onbording2 extends StatelessWidget {
   const Onbording2({Key? key, required this.title}) : super(key: key);
@@ -93,7 +94,11 @@ class Onbording2 extends StatelessWidget {
                 width: 300,
                 child: ElevatedButton(
                   onPressed: () {
-                    debugPrint('ElevatedButton Clicked');
+                    nextPage.animateToPage(
+                      2,
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                    );
                   },
                   child: const Text(
                     'Continue',

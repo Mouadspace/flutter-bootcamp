@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_a/screens/onBoarding/page0.dart';
 
 class Onbording3 extends StatelessWidget {
   const Onbording3({Key? key, required this.title}) : super(key: key);
@@ -92,7 +93,7 @@ class Onbording3 extends StatelessWidget {
                 width: 300,
                 child: ElevatedButton(
                   onPressed: () {
-                    debugPrint('ElevatedButton Clicked');
+                    Navigator.pushNamed(context, "/signIn");
                   },
                   child: const Text(
                     'Continue',

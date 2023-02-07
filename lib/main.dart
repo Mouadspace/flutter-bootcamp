@@ -3,6 +3,7 @@ import 'package:flutter_a/screens/home/home.dart';
 
 import 'screens/auth/signIn.dart';
 import 'screens/auth/signUp.dart';
+import 'screens/onBoarding/page0.dart';
 import 'screens/onBoarding/page1.dart';
 import 'screens/onBoarding/page2.dart';
 import 'screens/onBoarding/page3.dart';
@@ -27,11 +28,12 @@ class MyApp extends StatelessWidget {
       // home: const signIn(title: 'Ecomerce Application'),
 
       //adding routes
-      initialRoute: "/signIn",
+      initialRoute: "/onBording",
       routes: {
         "/signIn": (context) => const signIn(title: 'Ecomerce Application'),
         "/signUp": (context) => const signUp(title: 'Ecomerce Application'),
         "/home": (context) => const homeScreen(),
+        "/onBording": (context) => OnbordingScreens(),
         "/onBording1": (context) =>
             const Onbording1(title: 'Ecomerce Application'),
         "/onBording2": (context) =>

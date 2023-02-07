@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_a/screens/home/home.dart';
 
 import 'screens/auth/signIn.dart';
 import 'screens/auth/signUp.dart';
@@ -23,7 +24,21 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         fontFamily: "Mulish",
       ),
-      home: const signUp(title: 'Ecomerce Application'),
+      // home: const signIn(title: 'Ecomerce Application'),
+
+      //adding routes
+      initialRoute: "/signIn",
+      routes: {
+        "/signIn": (context) => const signIn(title: 'Ecomerce Application'),
+        "/signUp": (context) => const signUp(title: 'Ecomerce Application'),
+        "/home": (context) => const homeScreen(),
+        "/onBording1": (context) =>
+            const Onbording1(title: 'Ecomerce Application'),
+        "/onBording2": (context) =>
+            const Onbording2(title: 'Ecomerce Application'),
+        "/onBording3": (context) =>
+            const Onbording3(title: 'Ecomerce Application'),
+      },
     );
   }
 }

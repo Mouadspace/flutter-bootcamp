@@ -10,6 +10,7 @@ import 'screens/onBoarding/page2.dart';
 import 'screens/onBoarding/page3.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       // home: const signIn(title: 'Ecomerce Application'),
 
       //adding routes
-      initialRoute: "/home",
+      initialRoute: "/navigation",
       routes: {
         "/signIn": (context) => const signIn(title: 'Ecomerce Application'),
         "/signUp": (context) => const signUp(title: 'Ecomerce Application'),
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
             const Onbording2(title: 'Ecomerce Application'),
         "/onBording3": (context) =>
             const Onbording3(title: 'Ecomerce Application'),
-        "/navigation": (context) => const Navigation(),
+        "/navigation": (context) => const BottomNavBar(),
       },
     );
   }

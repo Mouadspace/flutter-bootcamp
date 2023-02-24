@@ -1,51 +1,122 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:flutter_a/screens/home/home.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class Navigation extends StatelessWidget {
-  const Navigation({Key? key}) : super(key: key);
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+
+import '../../chat/chat.dart';
+import '../../favourites/favourites.dart';
+import '../../profile/profile.dart';
+
+class BottomNavBar extends StatelessWidget {
+  const BottomNavBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GNav(
-        rippleColor:
-            Colors.grey.shade800, // tab button ripple color when pressed
-        hoverColor: Colors.grey.shade700, // tab button hover color
-        haptic: true, // haptic feedback
-        tabBorderRadius: 15,
-        tabActiveBorder:
-            Border.all(color: Colors.black, width: 1), // tab button border
-        tabBorder:
-            Border.all(color: Colors.grey, width: 1), // tab button border
-        tabShadow: [
-          BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)
-        ], // tab button shadow
-        curve: Curves.easeOutExpo, // tab animation curves
-        duration: const Duration(milliseconds: 900), // tab animation duration
-        gap: 8, // the tab button gap between icon and text
-        color: Colors.grey[800], // unselected icon color
-        activeColor: Colors.purple, // selected icon and text color
-        iconSize: 24, // tab button icon size
-        tabBackgroundColor:
-            Colors.purple.withOpacity(0.1), // selected tab background color
-        padding: const EdgeInsets.symmetric(
-            horizontal: 20, vertical: 5), // navigation bar padding
-        tabs: const [
-          GButton(
-            icon: Icons.home,
-            text: 'Home',
+    List<Widget> _buildScreens() {
+      return [
+        const HomeScreen(),
+        const Favourites(),
+        const Chat(),
+        const Profile(),
+        // const Screen5(),
+      ];
+    }
+
+    PersistentTabController controller;
+
+    controller = PersistentTabController(initialIndex: 0);
+    List<PersistentBottomNavBarItem> _navBarsItems() {
+      return [
+        PersistentBottomNavBarItem(
+          icon: SvgPicture.asset(
+            "assets/icons/svg/Shop Icon.svg",
+            color:
+                controller.index == 0 ? const Color(0xffea7445) : Colors.grey,
           ),
-          GButton(
-            icon: Icons.heart_broken,
-            text: 'Likes',
+          // inactiveIcon: SvgPicture.asset(
+          //   "assets/icons/svg/Shop Icon.svg",
+          //   color: Colors.red,
+          // ),
+          title: ("Store"),
+          activeColorPrimary: const Color(0xffea7445),
+          inactiveColorPrimary: Colors.grey,
+        ),
+        PersistentBottomNavBarItem(
+          icon: SvgPicture.asset(
+            "assets/icons/svg/Heart Icon.svg",
+            color:
+                controller.index == 1 ? const Color(0xffea7445) : Colors.grey,
+            // color: Colors.grey,
           ),
-          GButton(
-            icon: Icons.search,
-            text: 'Search',
+          title: ("Favorite"),
+          activeColorPrimary: const Color(0xffea7445),
+          inactiveColorPrimary: Colors.grey,
+        ),
+        // PersistentBottomNavBarItem(
+        //   icon: const Icon(
+        //     Icons.shopping_cart,
+        //     color: Colors.white,
+        //   ),
+        //   inactiveIcon: const Icon(
+        //     Icons.shopping_cart_outlined,
+        //     color: Colors.white,
+        //   ),
+        //   activeColorPrimary: Colors.blue,
+        //   inactiveColorPrimary: Colors.grey,
+        // ),
+        PersistentBottomNavBarItem(
+          icon: SvgPicture.asset(
+            "assets/icons/svg/Chat bubble Icon.svg",
+            // color: Colors.grey,
           ),
-          GButton(
-            icon: Icons.person,
-            text: 'Profile',
-          )
-        ]);
+          title: ("Chat"),
+          activeColorPrimary: const Color(0xffea7445),
+          inactiveColorPrimary: Colors.grey,
+        ),
+        PersistentBottomNavBarItem(
+          icon: SvgPicture.asset(
+            "assets/icons/svg/User Icon.svg",
+            // color: Colors.grey,
+          ),
+          title: ("Setting"),
+          activeColorPrimary: const Color(0xffea7445),
+          inactiveColorPrimary: Colors.grey,
+        ),
+      ];
+    }
+
+    return PersistentTabView(
+      context,
+      onItemSelected: (value) {
+        controller.index = value;
+        print("this is : ${controller.index}");
+      },
+      screens: _buildScreens(),
+      items: _navBarsItems(),
+      controller: controller,
+      confineInSafeArea: true,
+      backgroundColor: Colors.white,
+      handleAndroidBackButtonPress: true,
+      resizeToAvoidBottomInset: true,
+      stateManagement: true,
+      hideNavigationBarWhenKeyboardShows: true,
+      decoration: NavBarDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        colorBehindNavBar: Colors.white,
+      ),
+      popAllScreensOnTapOfSelectedTab: true,
+      popActionScreens: PopActionScreensType.all,
+      itemAnimationProperties: const ItemAnimationProperties(
+        duration: Duration(milliseconds: 200),
+        curve: Curves.ease,
+      ),
+      screenTransitionAnimation: const ScreenTransitionAnimation(
+        animateTabTransition: true,
+        curve: Curves.ease,
+        duration: Duration(milliseconds: 200),
+      ),
+      navBarStyle: NavBarStyle.style12,
+    );
   }
 }

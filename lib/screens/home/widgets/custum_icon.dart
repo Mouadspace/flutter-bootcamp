@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_a/screens/onBoarding/page3.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../cart/cart.dart';
 
 class CustumIcon extends StatelessWidget {
   final String iconPath;

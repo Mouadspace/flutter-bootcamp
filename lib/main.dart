@@ -3,6 +3,7 @@ import 'package:flutter_a/screens/home/home.dart';
 
 import 'screens/auth/signIn.dart';
 import 'screens/auth/signUp.dart';
+import 'screens/cart/cart.dart';
 import 'screens/home/navigation/navigation.dart';
 import 'screens/onBoarding/page0.dart';
 import 'screens/onBoarding/page1.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       // home: const signIn(title: 'Ecomerce Application'),
 
       //adding routes
-      initialRoute: "/navigation",
+      initialRoute: "/cart",
       routes: {
         "/signIn": (context) => const signIn(title: 'Ecomerce Application'),
         "/signUp": (context) => const signUp(title: 'Ecomerce Application'),
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         "/onBording3": (context) =>
             const Onbording3(title: 'Ecomerce Application'),
         "/navigation": (context) => const BottomNavBar(),
+        "/cart": (context) => const Cart(),
       },
     );
   }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_a/controller/product_controller.dart';
 import 'package:flutter_a/screens/home/home.dart';
+import 'package:get/get.dart';
 
+import 'controller/home_controller.dart';
 import 'screens/auth/signIn.dart';
 import 'screens/auth/signUp.dart';
 import 'screens/cart/cart.dart';
@@ -12,6 +15,7 @@ import 'screens/onBoarding/page3.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Get.lazyPut(() => Home());
   runApp(const MyApp());
 }
 
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
       // home: const signIn(title: 'Ecomerce Application'),
 
       //adding routes
-      initialRoute: "/cart",
+      initialRoute: "/navigation",
       routes: {
         "/signIn": (context) => const signIn(title: 'Ecomerce Application'),
         "/signUp": (context) => const signUp(title: 'Ecomerce Application'),

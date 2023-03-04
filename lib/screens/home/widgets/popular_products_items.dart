@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_a/controller/home_controller.dart';
 import 'package:flutter_a/models/popular_products_models.dart';
-import 'package:flutter_a/screens/home/widgets/favourite.dart';
+import 'package:flutter_a/models/product_model.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
+import '../../../controller/product_controller.dart';
 
 class PopularProductsItems extends StatelessWidget {
   final Popular popular;
@@ -9,6 +14,7 @@ class PopularProductsItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Home fcontroller = Get.find<Home>();
     return Container(
       margin: const EdgeInsets.only(right: 20),
       // color: Colors.lightBlue.withOpacity(.4),
@@ -53,7 +59,28 @@ class PopularProductsItems extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                const FavouriteButton(),
+                // const FavouriteButton(),
+                GestureDetector(
+                  onTap: () {
+                    fcontroller.isLiked(popular);
+                    fcontroller.update();
+                  },
+                  child: Container(
+                    width: 31,
+                    height: 31,
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      color: fcontroller.isFavourite
+                          ? Colors.redAccent.withOpacity(.3)
+                          : const Color(0xfff0f0f5),
+                    ),
+                    child: SvgPicture.asset(
+                      "assets/icons/svg/Heart Icon_2.svg",
+                      color: fcontroller.isFavourite ? Colors.redAccent : null,
+                    ),
+                  ),
+                )
               ],
             ),
           )
